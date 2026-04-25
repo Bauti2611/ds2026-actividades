@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM de Libros TS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Gestión de Libros</h1>
+
+        <div class="tarjeta">
+            <h2>Cargar Nuevo Libro</h2>
+            <form id="formLibro">
+                <input type="text" id="inputTitulo" placeholder="Título del libro">
+                <input type="text" id="inputAutor" placeholder="Autor">
+                
+                <input type="text" id="inputGenero" placeholder="Género (Opcional)">
+                
+                <input type="number" id="inputPrecio" placeholder="Precio ($)">
+                
+                <label class="checkbox-container">
+                    <input type="checkbox" id="checkDisponible" checked> 
+                    <span>El libro está disponible para la venta</span>
+                </label>
+                
+                <button type="submit" class="btn-principal">Agregar Libro</button>
+            </form>
+            
+            <div id="errorForm" class="mensaje-error"></div>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Catálogo Actual</h2>
+            <ul id="listado"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

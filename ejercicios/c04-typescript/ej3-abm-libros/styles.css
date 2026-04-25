@@ -1,0 +1,129 @@
+/* mejora visual hecha con gemini, no es parte del ejercicio pero queda linda:) */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+
+.contenedor {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1f2937;
+}
+
+
+.tarjeta {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #4b5563;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+
+.btn-principal {
+    background-color: #10b981;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: #059669; 
+}
+
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+li:last-child {
+    border-bottom: none; 
+}
+
+
+li button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+li button:hover {
+    background-color: #dc2626;
+}
+
+
+.mensaje-error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 20px; 
+}
