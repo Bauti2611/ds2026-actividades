@@ -47,7 +47,7 @@ btnBuscar.addEventListener('click', async () => {
                             <h5 class="card-title">${libro.title}</h5>
                             <p class="card-text text-muted mb-1">Autor: ${autor}</p>
                             <p class="card-text text-muted small mb-3">Año: ${anio}</p>
-                            <a href="libro.html" class="btn btn-outline-primary mt-auto">Ver más</a>
+                            <a href="libro.html?obra=${libro.key}" class="btn btn-outline-primary mt-auto">Ver más</a>
                         </div>
                     </div>
                 </div>
