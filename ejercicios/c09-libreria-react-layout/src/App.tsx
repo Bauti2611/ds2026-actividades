@@ -1,10 +1,17 @@
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 import Home from './pages/Home';
-import Layout from './components/layout/Layout'
+import Catalogo from './pages/Catalogo';
+import LibroDetalle from './pages/LibroDetalle';
 
 function App() {
     return (
         <Layout>
-            <Home />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/libros" element={<Catalogo />} />
+                <Route path="/libros/:id" element={<LibroDetalle />} />
+            </Routes>
         </Layout>
     );
 }
