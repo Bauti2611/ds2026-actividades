@@ -1,5 +1,3 @@
-import Navbar from '../components/Layout/Navbar';
-import Footer from '../components/Layout/Footer';
 import LibroCard from '../components/LibroCard';
 import type { Libro } from '../types/libro';
 
@@ -50,27 +48,22 @@ export default function Home() {
     ];
 
     return (
-        <div className="d-flex flex-column min-vh-100 bg-light">
-            <Navbar />
+        <main className="container flex-grow-1 mt-5 mb-5">
+            <h2 className="text-center mb-4 fw-bold">Libros Destacados</h2>
 
-            <main className="container flex-grow-1 mt-5 mb-5">
-                <h2 className="text-center mb-4 fw-bold">Libros Destacados</h2>
-
-                <div className="row g-4">
-                    {librosDestacados.map((libro) => (
-                        <div className="col-12 col-md-6 col-lg-4" key={libro.id}>
-                            <LibroCard
-                                titulo={libro.titulo}
-                                autor={libro.autor}
-                                precio={libro.precio}
-                                imagen={libro.imagen}
-                            />
-                        </div>
-                    ))}
-                </div>
-            </main>
-
-            <Footer />
-        </div>
+            <div className="row g-4">
+                {librosDestacados.map((libro) => (
+                    <div className="col-12 col-md-6 col-lg-4" key={libro.id}>
+                        <LibroCard
+                            titulo={libro.titulo}
+                            autor={libro.autor}
+                            precio={libro.precio}
+                            imagen={libro.imagen}
+                        />
+                    </div>
+                ))}
+            </div>
+        </main>
     );
 }
+
