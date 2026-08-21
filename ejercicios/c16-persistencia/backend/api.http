@@ -1,0 +1,76 @@
+@baseUrl = http://localhost:3000/api
+
+### ----------------- LIBROS ----------------- ###
+
+### 1. GET - Listar todos los libros (status 200)
+GET {{baseUrl}}/libros
+
+### 2. GET - Filtrar libros disponibles (status 200)
+GET {{baseUrl}}/libros?disponible=true
+
+### 3. GET - Ver un libro por ID (status 200)
+GET {{baseUrl}}/libros/1
+
+### 4. GET - Ver libro que no existe (status 404)
+GET {{baseUrl}}/libros/999
+
+### 5. POST - Crear un nuevo libro (status 201)
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "Rayuela",
+  "autor": "Julio Cortázar",
+  "precio": 9000,
+  "imagen": "https://th.bing.com/th/id/OIP.A30BqT577883...",
+  "disponible": true
+}
+
+### 6. PUT - Editar un libro (status 200)
+PUT {{baseUrl}}/libros/1
+Content-Type: application/json
+
+{
+  "titulo": "El Camino de los Reyes (Editado)",
+  "precio": 30000
+}
+
+### 7. PUT - Editar libro que no existe (status 404)
+PUT {{baseUrl}}/libros/999
+Content-Type: application/json
+
+{
+  "titulo": "No existo"
+}
+
+### 8. DELETE - Borrar un libro (status 204)
+DELETE {{baseUrl}}/libros/2
+
+### 9. DELETE - Borrar libro que no existe (status 404)
+DELETE {{baseUrl}}/libros/999
+
+
+### ----------------- AUTORES ----------------- ###
+
+### 10. GET - Listar autores
+GET {{baseUrl}}/autores
+
+### 11. POST - Crear autor
+POST {{baseUrl}}/autores
+Content-Type: application/json
+
+{
+  "nombre": "Liliana Bodoc",
+  "nacionalidad": "Argentina"
+}
+
+### 12. PUT - Editar autor
+PUT {{baseUrl}}/autores/1
+Content-Type: application/json
+
+{
+  "nacionalidad": "Estadounidense (Editado)"
+}
+
+### 13. DELETE - Borrar autor
+DELETE {{baseUrl}}/autores/1
