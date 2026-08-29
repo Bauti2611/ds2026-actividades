@@ -1,0 +1,95 @@
+@baseUrl = http://localhost:3000/api
+
+### ----------------- LIBROS (Casos de Éxito) ----------------- ###
+
+### 1. GET - Listar todos los libros con su Autor
+GET {{baseUrl}}/libros
+
+### 2. GET - Filtrar libros disponibles
+GET {{baseUrl}}/libros?disponible=true
+
+### 3. GET - Ver detalle de un libro con Autor y Categorías
+GET {{baseUrl}}/libros/1
+
+### 4. POST - Crear libro válido
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "El Fin de la Eternidad",
+  "precio": 19500,
+  "imagen": "https://ejemplo.com/eternidad.jpg",
+  "disponible": true,
+  "autorId": 1
+}
+
+### 5. PUT - Editar libro válido
+PUT {{baseUrl}}/libros/1
+Content-Type: application/json
+
+{
+  "precio": 28000
+}
+
+### 6. DELETE - Borrar libro válido
+DELETE {{baseUrl}}/libros/2
+
+
+### ----------------- AUTORES (Casos de Éxito) ----------------- ###
+
+### 7. GET - Listar autores
+GET {{baseUrl}}/autores
+
+### 8. GET - Ver autor con sus libros relacionados
+GET {{baseUrl}}/autores/1
+
+### 9. POST - Crear autor válido
+POST {{baseUrl}}/autores
+Content-Type: application/json
+
+{
+  "nombre": "Isaac Asimov",
+  "nacionalidad": "Rusa"
+}
+
+
+### ----------------- CASOS DE ERROR (400, 404, 409) ----------------- ###
+
+### 10. POST (400) - Error de validación Zod (sin título, precio negativo)
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "precio": -500,
+  "imagen": "https://...",
+  "autorId": 1
+}
+
+### 11. GET (400) - Error de validación en Params (id inválido "abc")
+GET {{baseUrl}}/libros/abc
+
+### 12. POST (409/400) - Autor inexistente (violación de clave foránea)
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "Libro Huérfano",
+  "precio": 5000,
+  "imagen": "https://...",
+  "autorId": 9999
+}
+
+### 13. POST (409) - Autor duplicado (violación @unique)
+POST {{baseUrl}}/autores
+Content-Type: application/json
+
+{
+  "nombre": "Brandon Sanderson",
+  "nacionalidad": "Estadounidense"
+}
+
+### 14. DELETE (409) - Borrar autor que tiene libros (onDelete: Restrict)
+DELETE {{baseUrl}}/autores/1
+
+### 15. GET/PUT/DELETE (404) - ID que no existe
+GET {{baseUrl}}/libros/999
